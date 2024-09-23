@@ -1,37 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Snacks-Client
 
-## Getting Started
+## Author: Tatyana Cuttino
 
-First, run the development server:
+## Description
+
+Snacks Client is a dynamic frontend application built with Next.js, designed to render data from an Express API. This vibrant snack list application showcases a variety of snacks in an engaging and user-friendly interface. Snacks Client effectively combines functionality with a delightful user experience, catering to snack enthusiasts looking for tasty recommendations!
+
+## How to Run
+
+Clone the repository: [https://github.com/Tatyanac94/snacks-client.git](https://github.com/Tatyanac94/snacks-client.git)
+
+Navigate to the project directory:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd [project-directory]
+
+## Installation Command
+
+Install dependencies: npm install
+
+## Set Up Environmental Variables
+
+Create a `.env.local` file in the root directory of the project
+
+```Supabase
+API_KEY=your-generated-api-key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run the Server
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+For development with auto-reloading: npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Open your browser and navigate to <http://localhost:3000> to see the app in action.
 
-## Learn More
+## Key Features
 
-To learn more about Next.js, take a look at the following resources:
+* Real-Time Data Fetching: Utilizes asynchronous calls to an Express API, ensuring users always have access to the latest snack offerings.
+* Responsive Design: The layout adapts seamlessly to different screen sizes, providing an optimal browsing experience on both mobile and desktop devices.
+* Playful Multi-Color Palette: The cheerful color scheme enhances the visual appeal, making the browsing experience fun and inviting.
+* Intuitive Snack Cards: Each snack is presented in an individual card format, displaying essential details like name, description, and price, making it easy for users to explore options.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies and Resources Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* [Deployed Snacks Project](deployed-snacks-project.vercel.app): The backend service hosted at deployed-snacks-project.vercel.app, serving as a database of snacks listed in JSON format. ([GitHub Repository](https://github.com/Tatyanac94/Deployed-Snacks-Project.git)).
 
-## Deploy on Vercel
+* Vercel: Deployment platform for serverless functions and static sites.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Next.js: A React framework for building server-rendered applications and static websites, enabling features like routing, data fetching, and SEO optimization.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# snacks-client
+* React: A JavaScript library for building user interfaces, allowing for the creation of reusable components.
+
+* Javascript: Programming language used for both server-side and client-side code.
+
+* Fetch API: Used for making asynchronous requests to the Express API to retrieve snack data.
