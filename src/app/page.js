@@ -30,6 +30,7 @@ const SnackCard = ({ snack }) => {
 export default function Page() {
     const [snacks, setSnacks] = useState([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true); // Loading state
 
     useEffect(() => {
         const loadSnacks = async () => {
@@ -38,11 +39,17 @@ export default function Page() {
                 setSnacks(fetchedSnacks);
             } catch (error) {
                 setError(error.message);
+            } finally {
+                setLoading(false); // Set loading to false after fetch
             }
         };
 
         loadSnacks();
     }, []);
+
+    if (loading) {
+        return <div>Loading...</div>; // Loading message
+    }
 
     if (error) {
         return <div>Error: {error}</div>;
