@@ -76,12 +76,14 @@
 
 
 
+// // src/app/page.js
 // src/app/page.js
 
 import React from 'react';
 
+// Function to fetch snacks
 async function fetchSnacks(apiKey) {
-    const res = await fetch(`https://deployed-snacks-project.vercel.app/api/snacks`, {
+    const res = await fetch('https://deployed-snacks-project.vercel.app/api/snacks', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${apiKey}`,
@@ -94,6 +96,7 @@ async function fetchSnacks(apiKey) {
     return res.json();
 }
 
+// SnackCard component (client component)
 const SnackCard = ({ snack }) => {
     return (
         <div className="snack-card">
@@ -104,7 +107,8 @@ const SnackCard = ({ snack }) => {
     );
 };
 
-export async function getServerSideProps() {
+// Page component (server component)
+export default async function Page() {
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
     let snacks = [];
     let error = null;
@@ -115,10 +119,6 @@ export async function getServerSideProps() {
         error = err.message;
     }
 
-    return { props: { snacks, error } };
-}
-
-export default function Page({ snacks, error }) {
     if (error) {
         return <div>Error: {error}</div>;
     }
