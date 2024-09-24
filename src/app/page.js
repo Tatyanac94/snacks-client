@@ -1,4 +1,6 @@
-import React from 'react';
+"use client"
+
+import React, { useState, useEffect } from 'react';
 
 async function fetchSnacks(apiKey) {
     const res = await fetch('https://deployed-snacks-project.vercel.app/api/snacks', {
@@ -15,8 +17,7 @@ async function fetchSnacks(apiKey) {
 }
 
 const SnackCard = ({ snack }) => {
-    "use client"; 
-
+    "use client";
     return (
         <div className="snack-card">
             <h3 className="snack-name">{snack.name}</h3>
@@ -26,16 +27,29 @@ const SnackCard = ({ snack }) => {
     );
 };
 
-// Page component (Server Component)
-export default async function Page() {
+export default function Page() {
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-    let snacks = [];
-    let error = null;
+    const [snacks, setSnacks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    try {
-        snacks = await fetchSnacks(apiKey);
-    } catch (err) {
-        error = err.message;
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await fetchSnacks(apiKey);
+                setSnacks(data);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [apiKey]);
+
+    if (loading) {
+        return <div>Loading...</div>; // You can replace this with a loading spinner or animation
     }
 
     if (error) {

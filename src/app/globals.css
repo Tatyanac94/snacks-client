@@ -12,8 +12,13 @@ body {
 .snack-list-title {
   text-decoration: underline;
   font-size: 2.5rem; 
-  margin-bottom: 20px; 
-  color: #FF6F00; 
+  margin-bottom: 20px;
+  transition: color 0.3s ease; 
+  color: #00B0FF; 
+}
+
+.snack-list-title:hover {
+  color: #FF6F00;
 }
 
 .container {
