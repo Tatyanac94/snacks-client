@@ -76,7 +76,7 @@
 
 
 
-/// src/app/page.js
+// src/app/page.js
 
 import React from 'react';
 
@@ -95,8 +95,10 @@ async function fetchSnacks(apiKey) {
     return res.json();
 }
 
-// SnackCard component (client component)
+// SnackCard component (Client Component)
 const SnackCard = ({ snack }) => {
+    "use client"; // Use this directive here to make it a client component
+
     return (
         <div className="snack-card">
             <h3 className="snack-name">{snack.name}</h3>
@@ -106,7 +108,7 @@ const SnackCard = ({ snack }) => {
     );
 };
 
-// Page component (server component)
+// Page component (Server Component)
 export default async function Page() {
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
     let snacks = [];
