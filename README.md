@@ -14,6 +14,7 @@ Navigate to the project directory:
 
 ```bash
 cd [project-directory]
+```
 
 ## Installation Command
 
@@ -26,7 +27,7 @@ Create a `.env.local` file in the root directory of the project
 ```Supabase
 Supabase
 API_KEY=your-generated-api-key
-
+```
 
 ## Run the Server
 
